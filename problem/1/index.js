@@ -4,23 +4,11 @@
 Find the sum of all the multiples of 3 or 5 below 1000.
 **/
 
-async function main() {
-    /*
-    const sumFunc = (sum, e) => sum + e;
-    const arr = [...Array(1000).keys()];
-    const set1 = arr.filter(e => e%3 === 0);
-    const set2 = arr.filter(e => e%5 === 0);
+const l = 1000 - 1
+    ,t1 = 3
+    ,t2 = 5
 
-    console.log(set1.reduce(sumFunc) + set2.reduce(sumFunc));
-    */
+const f = (x, l) => ((x + parseInt(l / x) * x ) * parseInt(l / x)) / 2
 
-   let result = 0;
-   for (let i = 0; i < 1000; i++) {
-       result += (i % 3 === 0 || i % 5 === 0) ? i : 0;
-   }
-
-   console.log(result);
-}
-
-main().catch(() => process.exit(1));
+console.log(f(t1, l) + f(t2, l) - f(t1 * t2, l))
 
