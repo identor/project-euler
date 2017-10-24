@@ -72,7 +72,7 @@ const matrix = `
 
           for (let i = 0; i < nMax; i++) {
             dArr.push(m[r+i][c+i]);
-            bdArr.push(m[r+i][m.length - i - 1])
+            bdArr.push(m[r+i][nMax + c - i - 1])
             hArr.push(m[r][c+i])
             vArr.push(m[r+i][c]);
           }
