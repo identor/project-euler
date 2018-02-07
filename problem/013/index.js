@@ -214,7 +214,6 @@ class BigDigit {
     for (let i = 0; i < this.digits.length; i++) {
       let overflow
       if (overflow = Math.floor(this.digits[i] / 10)) {
-        console.log('Overflow', overflow)
         if (isNaN(this.digits[i+1])) {
           this.digits.push(overflow)
         } else {
@@ -245,6 +244,8 @@ class BigDigit {
 
   // @Override
   toString() {
+    this.fixOverflow()
+
     return [...this.digits].reverse().join('')
   }
 }
@@ -254,8 +255,8 @@ const sum = console.log(
   .split('\n')
   .filter(Boolean)
   .reduce((digit, line) => digit.add(line), new BigDigit())
-  .fixOverflow()
   .toString()
+  .slice(0, 10)
 )
 
 
